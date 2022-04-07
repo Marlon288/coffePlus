@@ -1,0 +1,8 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# local env files API Key Is saved here - only line in file (NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="YOURAPIKEYHERE")
+.env.local
+
+
+# vercel
+.vercel
