@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS <link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="css/images/Icons/favicon-32x32.png">
+    
+    
+    <title>Log In</title>
+  </head>
+  <body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img class="resize" src="css/images/coffeeplusLOGO.png" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form>
+          <input type="text" id="login" class="fadeIn second" name="login" placeholder="E-Mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-Mail'">
+          <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+          <input type="submit" id="submitLogIn" class="fadeIn fourth" value="Log In">
+        </form>
+
+        <!-- Remind Passowrd And Sign Up -->
+        <div id="formFooter">
+          <a class="underlineHover linkLogin" href="#">Forgot Password?</a>
+          <a class="underlineHover linkLogin" href="/">Continue as Guest</a> <!-- Cant connect yet to the app, because its written with react -->
+          <a class="underlineHover linkLogin" href="SignUp.html">Sign up</a>
+        </div>
+      </div>
+    </div>
+    <script src="js/User.js"></script>
+    <script src="js/logIn.js"></script>
+  </body>
+</html>
