@@ -1,15 +1,46 @@
-document.getElementById("submitSignUp").addEventListener("click", addNewUser, false);
 
+function addNewUser() {
 
+  
+    const email = document.getElementById("username").value;
+    const pswd = document.getElementById("password").value;
+    const wName = document.getElementById("fnamne").value + " " + document.getElementById("lnamne").value;
+  
+    fetchData('/users/register', {name: wName, user: email, password: pswd}, "POST")
+    .then((data) => {
+      if(!data.message) {
+        setCurrentUser(data);
+        window.location.href = "http://localhost:3000";
+      }
+    })
+    .catch((error) => {
+      console.log(`Error! ${errText}`)
+    });
+  }
 
-function addNewUser(){
-    let fNameValue = document.getElementById("fName").value;
-    let lNameValue = document.getElementById("lName").value;
-    let emailValue = document.getElementById("email").value;
-    let passwordValue = document.getElementById("password").value;  
-    if(fNameValue != "" && lNameValue != "" && emailValue != "" && passwordValue != ""){
-        let user = new User(0,fNameValue, lNameValue, emailValue, passwordValue);
-        console.log(user.toString());
+ async function fetchData(url = '', data = {}, methodType) {
+    const response = await fetch(`http://localhost:3000${url}`, {
+      method: methodType, // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    if(response.ok) {
+      return await response.json(); // parses JSON response into native JavaScript objects
+    } else {
+      throw await response.json();
     }
-    
-}
+  }
+
+ function setCurrentUser(user) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  document.getElementById("submitSignUp").addEventListener("click", addNewUser, false);

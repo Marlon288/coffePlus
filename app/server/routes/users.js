@@ -21,4 +21,32 @@ router.get('/', (req, res) => {
     }
 })
 
+.post('/register', (req, res) => {
+    try {
+      const user = User.register(req.body);
+      res.send({...user, password: undefined})
+    } catch(error) {
+      res.status(401).send({message: error.message});
+    }
+  })
+
+  .delete('/delete', (req, res) => {
+    try {
+      User.deleteUser(req.body.userId);
+      res.send({success: "User successfull deleted"});
+    } catch(error) {
+      res.status(401).send({message: error.message});
+    }
+  })
+
+  .put('/edit', (req, res) => {
+    try {
+      const user = User.editUser(req.body);
+      res.send({...user, password: undefined});
+    } catch(error) {
+      res.status(401).send({message: error.message})
+    }
+  })
+  
+
 module.exports = router;
