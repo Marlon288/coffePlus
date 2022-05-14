@@ -23,21 +23,23 @@
         </div>
 
         <!-- Login Form -->
-        <form>
-          <input type="text" id="login" class="fadeIn second" name="login" placeholder="E-Mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-Mail'">
+        <form id="form-login">
+          <input type="text" id="username" class="fadeIn second" name="login" placeholder="E-Mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-Mail/Username'">
           <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
           <input type="submit" id="submitLogIn" class="fadeIn fourth" value="Log In">
+          <p class="error"></p>
         </form>
 
         <!-- Remind Passowrd And Sign Up -->
         <div id="formFooter">
-          <a class="underlineHover linkLogin" href="#">Forgot Password?</a>
+          <a class="underlineHover linkLogin" href="mailto:it@coffeePlus.de">Forgot Password?</a>
           <a class="underlineHover linkLogin" href="">Continue as Guest</a> <!-- Cant connect yet to the app, because its written with react -->
           <a class="underlineHover linkLogin" href="SignUp.html">Sign up</a>
         </div>
       </div>
     </div>
-    <script src="js/User.js"></script>
-    <script src="js/logIn.js"></script>
+    
+    <script type="module" src="js/logIn.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
