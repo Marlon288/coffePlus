@@ -44,9 +44,9 @@
 
 
 .logoutDiv{
-    position:absolute;
-    bottom:25px;
-    right:25px;
+    position:fixed;
+    bottom:18px;
+    right:18px;
 }
 .logout svg{
     fill: black;

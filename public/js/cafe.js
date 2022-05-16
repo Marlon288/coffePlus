@@ -7,6 +7,7 @@ var middle = true;
 
 
 
+if( JSON.parse(localStorage.getItem('user')) === null)  window.location.href = "LogIn.html";
 
 
 function getFillStar(i) {
